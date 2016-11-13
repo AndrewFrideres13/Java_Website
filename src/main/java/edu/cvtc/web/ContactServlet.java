@@ -1,12 +1,15 @@
 package edu.cvtc.web;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import edu.cvtc.web.PasswordEncrypt;
+import static javax.swing.JOptionPane.showMessageDialog;
 /**
  * Servlet implementation class ContactServlet
  */
@@ -25,14 +28,18 @@ public class ContactServlet extends HttpServlet {
 		response.getWriter().append("\n\t\t\t<input name='fName' id='fName'>");
 		response.getWriter().append("\n\n\t\t\t<label for='lName'>Last Name:</label>\n\t\t\t<input name='lName' id='lName'>");
 		response.getWriter().append("\n\n\t\t\t<label for='myEmail'>E-mail:</label>\n\t\t\t<input required type='email' name='myEmail' id='myEmail'>");
-		response.getWriter().append("\n\n\t\t\t<label for='fakePass'>(FAKE) Password:</label>\n\t\t\t<input required type='password' name='fakePass' id='fakePass'>");
+		response.getWriter().append("\n\n\t\t\t<label for='fakePass'>Password:</label>\n\t\t\t<input required type='password' name='fakePass' id='fakePass'>");
 		response.getWriter().append("\n\n\t\t\t<input type='submit' value='Submit'>\n\t\t</form>\n\t\t<p>Please submit your info or I can be contacted at andrewfrideres13@gmail.com\n\t\t</p\n\t</body>\n\t<footer>&copy; 2016 Andrew Frideres</footer>\n</html>");
 	
-		final int password = request.getParameter("fakePass").trim().length(); 
-		if (password < 8) {
-			request.setAttribute("fakePass", "");
-			response.getWriter().append("\n\t<p>Password is too short\n\t</p>");
+		final String password = request.getParameter("fakePass").trim(); 
+		try {
+			showMessageDialog(null, "Hashed password is : " + PasswordEncrypt.hashPassword(password));
+			showMessageDialog(null, "Salted password is : " + PasswordEncrypt.getSalt());
+			showMessageDialog(null, "Hashed and salted password is : " + PasswordEncrypt.fullyEncryptedPassword(password));
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
 		}
+		
 	}
 
 	/**
