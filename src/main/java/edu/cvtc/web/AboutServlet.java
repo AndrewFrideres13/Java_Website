@@ -19,8 +19,8 @@ public class AboutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("<!DOCTYPE html>\n\t<head>\n\t\t<link rel='stylesheet' href='styles.css'>\n\t\t<title>About</title>\n\t</head>");
-		response.getWriter().append("<nav><ul><li><a href='Home'>Home</a></li><li><a href='Contact'>Contact Me</a></li></ul></nav>");
+		response.getWriter().append("<!DOCTYPE html>\n\t<head>\n\t\t<link rel='stylesheet' href='styles.css'>\n\t\t<title>About</title>");
+		response.getWriter().append("\n\t\t<nav>\n\t\t\t<ul>\n\t\t\t\t<li><a href='Contact'>Contact Me</a>\n\t\t\t\t</li>\n\t\t\t\t<li><a href='Home'>Home</a>\n\t\t\t\t</li>\n\t\t\t\t<li><a href='Secret'>TOP SECRET</a>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</nav>\n\t</head>");
 		response.getWriter().append("\n\t<body>\n\t\t<h1>About Me</h1>\n\t\t<p>My name is Andrew Frideres, I am currently enrolled in the IT Software Developer program. ");
 		response.getWriter().append("I am really big into playing and tinkering around with computers, and whenever i have the free time for it I'm a pretty big gamer as well!");
 		response.getWriter().append(" Some of my favorite games include DOOM, and Deus Ex, and too many others to list. I also am a big fan of classic rock, usually when i need to get stuff done I'm blasting it so i can get through it easier.");

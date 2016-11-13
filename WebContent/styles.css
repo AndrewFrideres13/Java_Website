@@ -26,18 +26,21 @@ nav ul {
   padding: 0;
 }
 
-nav li:first-child {
+nav li {
+  list-style-type:none;
+  font-size: 1.5em;
   border-bottom: dotted #fff;
   padding-bottom: 15px;
 }
 
-nav li {
-  list-style-type:none;
-  font-size: 1.5em;
+nav li:nth-child(2) {
+	padding-top: 15px;
 }
 
 nav li:last-child {
   padding-top: 15px;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 nav a {
@@ -63,17 +66,20 @@ body{
   background: radial-gradient(ellipse at center, #fff 0%,#e5e5e5 100%);
   width: 99%;
   min-height: 99.5%;
-  margin: 0 auto;
 }
 
 form {
-	margin: 0 auto;
+	text-align:center;
 	padding-left: 3em;
+}
+
+label {
+	margin: 15px auto;
 }
 
 input {
   display: block;
-  margin: 10px;	
+  margin: 13px auto;	
 }
 
 p {
@@ -83,14 +89,15 @@ p {
   margin: 0 auto;
 }
 
+
 footer {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -20px;
   left: 0;
   text-align:center;
   background-color:#000000;
-  width:100%;
+  width:99.5%;
   overflow:hidden;
   color:#fff;
 }
